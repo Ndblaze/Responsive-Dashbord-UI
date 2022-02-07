@@ -26,7 +26,7 @@
 body{
     height: 100vh;
     background-color: var(--body-color);
-    transform: var(--tran-04);
+    transform: var(--tran-05);
 }
 
 body.dark{
@@ -52,6 +52,7 @@ body.dark{
     padding: 10px 14px;
     background: var(--sidebar-color);
     transition: var(--tran-05);
+    z-index: 100;
 }
 
 .sidebar.close{
@@ -76,6 +77,7 @@ body.dark{
     min-width: 60px;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .sidebar li{
@@ -136,22 +138,32 @@ header .image-text .header-text{
     height: 25px;
     width: 25px;
     background-color: var(--primary-color);
-    transform: translateY(-50%);
+    transform: translateY(-50%) rotate(180deg);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     color: var(--sidebar-color);
     font-size: 22px;
+    transition: var(--tran-03);
+}
+
+.sidebar.close header .toggle{
+    transform: translateY(-50%);
 }
 
 body.dark .sidebar header .toggle{
     color: var(--text-color);
 }
 
+.sidebar .menu{
+    margin-top: 35px;
+}
+
 .sidebar .search-box{
     background: var(--primary-color-light);
     border-radius: 6px;
+    transition: var(--tran-05);
 }
 
 .search-box input{
@@ -161,6 +173,9 @@ body.dark .sidebar header .toggle{
     outline: none;
     border: none;
     border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: var(--tran-05);
 }
 
 .sidebar li a{
@@ -179,6 +194,12 @@ body.dark .sidebar header .toggle{
 
 .sidebar li a:hover .icon,
 .sidebar li a:hover .text{
+    color: var(--sidebar-color);
+}
+
+
+body.dark .sidebar li a:hover .icon,
+body.dark .sidebar li a:hover .text{
     color: var(--sidebar-color);
 }
 
@@ -204,10 +225,19 @@ body.dark .sidebar header .toggle{
 
 .menu-bar .mode i{
     position: absolute;
+    transition: var(--tran-03);
 }
 
 .menu-bar .mode i.sun{
    opacity: 0;
+}
+
+body.dark .menu-bar .mode i.sun{
+    opacity: 1;
+}
+
+body.dark .menu-bar .mode i.moon{
+    opacity: 0;
 }
 
 .menu-bar .mode .toggle-switch{
@@ -219,7 +249,9 @@ body.dark .sidebar header .toggle{
     height: 100%;
     min-width: 60px;
     cursor: pointer;
+    border-radius: 6px;
     background: var(--primary-color-light);
+    transition: var(--tran-05);
 }
 
 .toggle-switch .switch{
@@ -248,7 +280,27 @@ body.dark .switch::before {
 
 }
 
+.home{
+    position: relative;
+    left: 250px;
+    height: 100vh;
+    width: calc(100% - 250px);
+    background: var(--body-color);
+    transition: var(--tran-05);
+}
 
+
+.home .text{
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 8px 40px;
+}
+
+.sidebar.close ~ .home{
+    left: 88px;
+    width: calc(100% - 88px);
+}
 
 
 
